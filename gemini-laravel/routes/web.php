@@ -1,8 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GeminiController;
 
-// Rota para exibir o formulário (método 'create' no controller)
-Route::get("/", "App\Http\Controllers\GeminiImageController@create")->name("gemini-image-create");
-
-// Rota para processar a submissão do formulário (método 'store' no controller)
-Route::post("/gemini-image", "App\Http\Controllers\GeminiImageController@store")->name("gemini-image-store");
+Route::get('/ask', [GeminiController::class, 'index'])->name('ask.index');
+Route::post('/ask', [GeminiController::class, 'askQuestion'])->name('ask.question');
